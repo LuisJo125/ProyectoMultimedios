@@ -110,16 +110,18 @@
         global $db;
         $data = json_decode(file_get_contents("php://input"));
         
-        $query = "UPDATE `EVM_Clientes` SET `Cedula`= :cedula, `Nombre`=:nombre, `Apellido`=:apellido, `Telefono`=:telefono, `Correo`=:correo, `Estado`=:estado, where `IdCliente`=:idCliente";
-          
-        $stm = $db->prepare($query);            
+        $query = "UPDATE `EVM_Clientes` SET `Cedula`= :cedula, `Nombre`=:nombre, `Apellido`=:apellido, `Telefono`=:telefono, `Correo`=:correo, `Estado`=:estado 
+        where `IdCliente`=:idCliente";
+        
+        $stm = $db->prepare($query);
+        $stm->bindParam(":idCliente", $data->idCliente);            
         $stm->bindParam(":cedula", $data->cedula);
         $stm->bindParam(":nombre", $data->nombre);            
         $stm->bindParam(":apellido", $data->apellido);
         $stm->bindParam(":telefono", $data->telefono);
         $stm->bindParam(":correo", $data->correo);  
         $stm->bindParam(":estado", $data->estado);
-   
+
         if($stm->execute()){
             
             echo json_encode(array("message" => "Datos actualizados correct", "code" => "success"));
