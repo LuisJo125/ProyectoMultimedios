@@ -69,7 +69,7 @@
     function obtenerSerivicio($id){
         global $db;
 
-            $query = "SELECT `IdServicio`, `IdEmpleado`, `Descripcion`, `Hospital`, `Precio` FROM `EVM_Servicios` where  `IdServicio`=$id";
+            $query = "SELECT `IdServicio`, `IdEmpleado`, `Descripcion`, `Hospital`, `Precio` FROM `EVM_Servicios` where  `IdServicio`=?";
             $stm = $db->prepare($query);            
             $stm->bindParam(1, $id);
             $stm->execute();
