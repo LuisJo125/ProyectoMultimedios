@@ -3,9 +3,9 @@
     class DatabasesConexion {
 
         private $host = "srv863.hstgr.io";
-        private $pass = 'zD~>EilCGd1';
-        private $usua = "u484426513_multimedios022";
-        private $database =  "u484426513_multimedios022";
+        private $pass = '#5?Sf1p0Vh';
+        private $usua = "u484426513_multimedios012";
+        private $database =  "u484426513_multimedios012";
 
 
 
