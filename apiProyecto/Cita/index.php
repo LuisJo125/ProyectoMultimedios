@@ -94,6 +94,7 @@
         $stm->bindParam(":idServicio", $data->IdServicio);
         $stm->bindParam(":idCliente", $data->IdCliente);
         $stm->bindParam(":estado", $data->Estado);
+        
    
         if($stm->execute()){
             
