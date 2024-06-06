@@ -106,7 +106,7 @@
     }
 
 
-    function actualizarCliente(){
+    function actualizarCita(){
         global $db;
         $data = json_decode(file_get_contents("php://input"));
         
@@ -131,7 +131,7 @@
     }
 
 
-    function borrarCliente(){
+    function borrarCita(){
         global $db;
         $data = json_decode(file_get_contents("php://input"));
         
