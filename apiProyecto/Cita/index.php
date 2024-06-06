@@ -69,7 +69,7 @@
     function obtenerCita($id){
         global $db;
 
-            $query = "SELECT `IdCita`, `Fecha`, `Hospital`, `IdMedico`, `IdServicio`, `IdCliente`, `Estado` FROM `EVM_Citas` where `id`=?";
+            $query = "SELECT `IdCita`, `Fecha`, `Hospital`, `IdMedico`, `IdServicio`, `IdCliente`, `Estado` FROM `EVM_Citas` where `IdCita`=id";
             $stm = $db->prepare($query);            
             $stm->bindParam(1, $id);
             $stm->execute();
@@ -88,12 +88,12 @@
         
         $query = "INSERT INTO `EVM_Citas` ( `Fecha`, `Hospital`, `IdMedico`, `IdServicio`, `IdCliente`, `Estado` ) values ( :fecha, :hospital, :idMedico, :idServicio, :idCliente, :estado)";
         $stm = $db->prepare($query);            
-        $stm->bindParam(":fecha", $data->Fecha);
-        $stm->bindParam(":hospital", $data->Hospital);
-        $stm->bindParam(":idMedico", $data->IdMedico);
-        $stm->bindParam(":idServicio", $data->IdServicio);
-        $stm->bindParam(":idCliente", $data->IdCliente);
-        $stm->bindParam(":estado", $data->Estado);
+        $stm->bindParam(":fecha", $data->fecha);
+        $stm->bindParam(":hospital", $data->hospital);
+        $stm->bindParam(":idMedico", $data->idMedico);
+        $stm->bindParam(":idServicio", $data->idServicio);
+        $stm->bindParam(":idCliente", $data->idCliente);
+        $stm->bindParam(":estado", $data->estado);
         
    
         if($stm->execute()){
@@ -111,15 +111,16 @@
         global $db;
         $data = json_decode(file_get_contents("php://input"));
         
-        $query = "UPDATE `EVM_Citas` SET `Fecha`= :fecha, `Hospital`=:hospital, `IdMedico`=:idMedico, `IdServicio`=:idServicio, `IdCliente`=:idCliente, `Estado`=:estado, where `IdCita`=:id";
+        $query = "UPDATE `EVM_Citas` SET `Fecha`= :fecha, `Hospital`=:hospital, `IdMedico`=:idMedico, `IdServicio`=:idServicio, `IdCliente`=:idCliente, `Estado`=:estado where `IdCita`=:idCita";
           
-        $stm = $db->prepare($query);            
-        $stm->bindParam(":fecha", $data->Fecha);
-        $stm->bindParam(":hospital", $data->Hospital);
-        $stm->bindParam(":idMedico", $data->IdMedico);
-        $stm->bindParam(":idServicio", $data->IdServicio);
-        $stm->bindParam(":idCliente", $data->IdCliente);
-        $stm->bindParam(":estado", $data->Estado);
+        $stm = $db->prepare($query);         
+        $stm->bindParam(":idCita", $data->idCita);   
+        $stm->bindParam(":fecha", $data->fecha);
+        $stm->bindParam(":hospital", $data->hospital);
+        $stm->bindParam(":idMedico", $data->idMedico);
+        $stm->bindParam(":idServicio", $data->idServicio);
+        $stm->bindParam(":idCliente", $data->idCliente);
+        $stm->bindParam(":estado", $data->estado);
    
         if($stm->execute()){
             
@@ -139,7 +140,7 @@
         $query = "DELETE FROM `EVM_Citas` where `IdCita`=:id";
           
         $stm = $db->prepare($query);            
-        $stm->bindParam(":id", $data->IdCita);
+        $stm->bindParam(":id", $data->idCita);
    
         if($stm->execute()){
             
