@@ -113,6 +113,7 @@
         $query = "UPDATE `EVM_Empleados` SET `Nombre`= :nombre, `Apellido`=:apellido, `Telefono`=:telefono, `Direccion`=:direccion, `HospitalResidencia`=:hospitalResidencia where `IdEmpleado`=:idEmpleado";
           
         $stm = $db->prepare($query);            
+        $stm->bindParam(":idEmpleado", $data->idEmpleado);
         $stm->bindParam(":nombre", $data->nombre);
         $stm->bindParam(":apellido", $data->apellido);
         $stm->bindParam(":telefono", $data->telefono);
