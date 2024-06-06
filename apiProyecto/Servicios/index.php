@@ -69,7 +69,7 @@
     function obtenerSerivicio($id){
         global $db;
 
-            $query = "SELECT `IdServicio`, `IdEmpleado`, `Descripcion`, `Hospital`, `Precio` FROM `EVM_Servicios` where  `IdServicio`=?";
+            $query = "SELECT `IdServicio`, `IdEmpleado`, `Descripcion`, `Hospital`, `Precio` FROM `EVM_Servicios` where  `IdServicio`=$id";
             $stm = $db->prepare($query);            
             $stm->bindParam(1, $id);
             $stm->execute();
@@ -88,13 +88,13 @@
         
         $query = "INSERT INTO `EVM_Servicios` ( `IdEmpleado`, `Descripcion`, `Hospital`, `Precio` ) values ( :idEmpleado, :descripcion, :hospital, :precio)";
         $stm = $db->prepare($query);            
-        $stm->bindParam(":idEmpleado", $data->idEmplado);
+        $stm->bindParam(":idEmpleado", $data->idEmpleado);
         $stm->bindParam(":descripcion", $data->descripcion);
         $stm->bindParam(":hospital", $data->hospital);
         $stm->bindParam(":precio", $data->precio);
    
         if($stm->execute()){
-            
+           
             echo json_encode(array("message" => "Datos ingresados correct", "code" => "success"));
         }else{
             
@@ -111,8 +111,8 @@
         $query = "UPDATE `EVM_Servicios` SET `IdEmpleado`= :idEmpleado, `Descripcion`=:descripcion, `Hospital`=:hospital, `Precio`=:precio where `IdServicio`=:id";
           
         $stm = $db->prepare($query); 
-        $stm->bindParam(":id", $data->id);           
-        $stm->bindParam(":idEmpleado", $data->idEmplado);
+        $stm->bindParam(":id", $data->idServicio);           
+        $stm->bindParam(":idEmpleado", $data->idEmpleado);
         $stm->bindParam(":descripcion", $data->descripcion);
         $stm->bindParam(":hospital", $data->hospital);
         $stm->bindParam(":precio", $data->precio);
@@ -135,7 +135,7 @@
         $query = "DELETE FROM `EVM_Servicios` where `IdServicio`=:id";
           
         $stm = $db->prepare($query);            
-        $stm->bindParam(":id", $data->id);
+        $stm->bindParam(":id", $data->idServicio);
    
         if($stm->execute()){
             
