@@ -69,7 +69,7 @@
     function obtenerCita($id){
         global $db;
 
-            $query = "SELECT `IdCita`, `Fecha`, `Hospital`, `IdMedico`, `IdServicio`, `IdCliente`, `Estado` FROM `EVM_Citas` where `IdCita`=id";
+            $query = "SELECT `IdCita`, `Fecha`, `Hospital`, `IdMedico`, `IdServicio`, `IdCliente`, `Estado` FROM `EVM_Citas` where `IdCita`=?";
             $stm = $db->prepare($query);            
             $stm->bindParam(1, $id);
             $stm->execute();

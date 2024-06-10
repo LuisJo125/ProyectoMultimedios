@@ -139,7 +139,7 @@
         $query = "DELETE FROM `EVM_Empleados` where `IdEmpleado`=:idEmpleado";
           
         $stm = $db->prepare($query);            
-        $stm->bindParam(":idEmpleado", $data->id);
+        $stm->bindParam(":idEmpleado", $data->idEmpleado);
    
         if($stm->execute()){
             
