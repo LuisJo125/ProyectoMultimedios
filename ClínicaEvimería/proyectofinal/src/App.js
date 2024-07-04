@@ -2,7 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Menu from './misc/menu';
-import Footer from './misc/footer'
+import Footer from './misc/footer';
+import Citas from './citas/Citas';
 
 function App() {
   return (
@@ -16,20 +17,20 @@ function App() {
         </div>
         <div className='container-fluid'>
           <div className='container-fluid row col-12'>
-            <div className='container-fluid col-4 text-center body-elements'>
+            <div className='container-fluid col-6 text-center body-elements'>
               <p>info izquierda</p>
             </div>
-            <div className='container-fluid col-4 text-center body-elements'>
-              <p>info centro</p>
-            </div>
-            <div className='container-fluid col-4 text-center body-elements'>
+            <div className='container-fluid col-6 text-center body-elements'>
               <p>info derecha</p>
             </div>
           </div>
           <div className='container-fluid row'>
-            <div className='container.fluid text-center body-elements'>
+            <div className='container-fluid text-center body-elements'>
               <p>un carousel imagenes</p>
             </div>
+          </div>
+          <div className='container-fluid row'>
+            <Citas/>
           </div>
         </div>
       </div>
