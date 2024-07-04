@@ -68,7 +68,7 @@ const CitasList = () => {
     return (
         <div className='container'>
             <br></br><br></br><br></br>
-            <Button color='primary' onClick={() => toggleEditModal(true)}>
+            <Button color='primary' onClick={() => toggleEditModal(false)}>
                 Agregar
             </Button>
 

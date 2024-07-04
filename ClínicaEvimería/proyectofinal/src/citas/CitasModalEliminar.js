@@ -9,7 +9,7 @@ import axios from 'axios';
 
 
 const CitasModalEliminar = ( {isOpen, toggleModalEliminar, onCitaEliminar, citaEliminar}) => {
-    const [ idCita, setIdCita] = useState('');
+    const [ idCita, setIdCita] = useState("");
 
 
     useEffect ( ()=>{
@@ -32,11 +32,13 @@ const CitasModalEliminar = ( {isOpen, toggleModalEliminar, onCitaEliminar, citaE
     const handleSubmit = async () => {   
 
         try {
+            console.log(idCita);
             const response = await axios.delete('https://paginas-web-cr.com/ucr/multimedios0224/TeamLCHJ/apiProyecto/Cita/', 
                 {
-                    idCita
+                    data: { idCita }
                 }
             );
+          
             console.log('Respuesta', response.data);
             onCitaEliminar();
             cleanData();
@@ -57,7 +59,9 @@ const CitasModalEliminar = ( {isOpen, toggleModalEliminar, onCitaEliminar, citaE
              </ModalHeader>
         <ModalBody>
             <Label>¿Desea eliminar la cita número <span id="idCita" value={idCita} onChange={(e)=> setIdCita(e.target.value)}>?</span></Label>
-            <Input type="text" id="idCita" value={idCita} onChange={(e)=> setIdCita(e.target.value)}></Input>
+            <Input type="text" id="idCita" value={idCita} onChange={(e)=> setIdCita(e.target.value)} readOnly></Input>
+
+            
         </ModalBody>
         <ModalFooter>
         <Button color='success' onClick={handleSubmit}>

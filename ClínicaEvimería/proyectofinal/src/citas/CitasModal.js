@@ -26,7 +26,7 @@ const CitasModal = ( {isOpen, toggleModal, onCitaInsert, isEditar, citaEditar}) 
             setFecha(citaEditar.Fecha);
             setHospital(citaEditar.Hospital);
             setIdMedico(citaEditar.IdMedico);
-            setIdServicio(citaEditar.idServicio);
+            setIdServicio(citaEditar.IdServicio);
             setIdCliente(citaEditar.IdCliente);
             setEstado(citaEditar.Estado);
             setIdCita(citaEditar.IdCita);
