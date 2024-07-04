@@ -98,35 +98,13 @@ const CitasList = () => {
                                 <td>{citas.Estado}</td>
                                 <td>
                                     <Button color='primary' onClick={() => toggleEditModal(citas)}>Editar</Button>
-                                    <Button color='primary' onClick={() => toggleDeleteModal(citas)}>Eliminar</Button>
+                                    <Button color='danger' onClick={() => toggleDeleteModal(citas)}>Eliminar</Button>
                                 </td>
                             </tr>
                         ))
                     }
                 </tbody>
             </table>
-
-            {/* <Modal isOpen={modalOpen}>
-                <ModalHeader>Modal Curso</ModalHeader>
-                <ModalBody>
-                    <Label>Nombre</Label>
-                    <Input type='text' id='nombre' value={cursoEditar?.nombre || ''}></Input>
-                    <Label>Descripcion</Label>
-                    <Input type='text' id='descripcion' value={cursoEditar?.descripcion || ''}></Input>
-                    <Label>Tiempo</Label>
-                    <Input type='text' id='tiempo' value={cursoEditar?.tiempo || ''}></Input>
-                    <Label>Usuario</Label>
-                    <Input type='text' id='usuario' value={cursoEditar?.usuario || ''}></Input>
-                </ModalBody>
-                <ModalFooter>
-                    <Button color='success' onClick={guardar}>
-                        Guardar
-                    </Button>
-                    <Button color='danger' onClick={() => toggleEditModal(false)}>
-                        Cerrar
-                    </Button>
-                </ModalFooter>
-            </Modal> */}
 
             <CitasModal
                 isOpen={modalOpen}

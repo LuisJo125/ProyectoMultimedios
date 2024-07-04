@@ -38,20 +38,59 @@
 }
 .menu-container{
   margin-bottom: 50px;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 }
 
 .body-container{
   padding: 20px;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 }
 
 .body-elements{
   padding: 30px;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 }
 
 .footer-container{
   margin-top: 40px;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 }
 
 .text-center{
   text-align: center;
+}
+
+.img-container{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.img-container img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.main-title-style{
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+}
+
+.title-style{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+}
+
+.p-style{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: normal;
 }

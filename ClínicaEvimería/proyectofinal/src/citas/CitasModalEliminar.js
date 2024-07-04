@@ -64,10 +64,10 @@ const CitasModalEliminar = ( {isOpen, toggleModalEliminar, onCitaEliminar, citaE
             
         </ModalBody>
         <ModalFooter>
-        <Button color='success' onClick={handleSubmit}>
+        <Button color='danger' onClick={handleSubmit}>
             Confirmar
         </Button>
-        <Button color='danger' onClick={toggleModalEliminar}>
+        <Button color='secondary' onClick={toggleModalEliminar}>
             Cerrar
         </Button>
 
